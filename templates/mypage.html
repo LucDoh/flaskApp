@@ -1,30 +1,37 @@
 <html>
     <head>
-        <title>My Flask App</title>
+        <title>Craigslist Housing Report</title>
     </head>
 
     <body>
 
-        <div>
-Enter the<br>
-     </div>
+ <div align="center">
+   <h2> Craigslist Housing Analysis</h2>
+   <h4> To scrape and analyze a zipcode near you, enter: </h4>
+ <br>
       <form method="POST">
-          PREFIX:<br>
+          <b> PREFIX </b><br>
           <input name="prefix"><br>
-          ZIPCODE:<br>
+        <b> ZIPCODE </b> <br>
           <input name="zipcode"><br>
-          DISTANCE:<br>
+          <b> DISTANCE (Miles) </b><br>
           <input name="dist"><br>
-          NUMBER:<br>
-          <input name="n">
+          <b> NUMBER </b><br>
+          <input name="n"> <br> <br>
           <input type="submit">
       </form>
-      <div>
-PREFIX should be the text before <i> .craigslist.org </i>  [sfbay, newyork, washington, denver...] <br>
-ZIPCODE is 5 digits and in the above craigslist region/prefix<br>
+</div>
+<div align="center">
+Instructions: <br>
+PREFIX is the text preceeding <i> .craigslist.org </i>  [sfbay, newyork, washington, denver] <br>
+ZIPCODE is 5 digits and in the above craigslist region<br>
 DISTANCE in miles (integer)<br>
 NUMBER of postings (1-3000)<br>
- </div>
+<br>
+<img src="/static/images/houseDrawingImage.jpg" >
+
+</div>
+
 <!--
 	 <p>{{ name }}</p>
  -->

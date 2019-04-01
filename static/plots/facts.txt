@@ -4,3 +4,36 @@ Average for 1 bedrooms is $2700.98. --> $2700.98 per room [47]
 Average for 2 bedrooms is $3333.98. --> $1666.99 per room [44]
 Average for 3 bedrooms is $4151.07. --> $1383.69 per room [14]
 Average for 4 bedrooms is $1406.00. --> $351.50 per room [1]
+(91 listings)
+
+Average for 1 bedrooms is $2150.07. --> $2150.07 per room [29]
+Average for 2 bedrooms is $2699.07. --> $1349.54 per room [43]
+Average for 3 bedrooms is $4016.56. --> $1338.85 per room [16]
+Average for 4 bedrooms is $4966.67. --> $1241.67 per room [3]
+(91 listings)
+
+Average for 1 bedrooms is $2150.07. --> $2150.07 per room [29]
+Average for 2 bedrooms is $2699.07. --> $1349.54 per room [43]
+Average for 3 bedrooms is $4016.56. --> $1338.85 per room [16]
+Average for 4 bedrooms is $4966.67. --> $1241.67 per room [3]
+(111 listings)
+
+Average for 1 bedrooms is $2381.10. --> $2381.10 per room [21]
+Average for 2 bedrooms is $2624.43. --> $1312.21 per room [53]
+Average for 3 bedrooms is $3003.65. --> $1001.22 per room [31]
+Average for 4 bedrooms is $3859.80. --> $964.95 per room [5]
+Average for 5 bedrooms is $3975.00. --> $795.00 per room [1]
+(71 listings)
+
+Average for 1 bedrooms is $2929.07. --> $2929.07 per room [30]
+Average for 2 bedrooms is $4115.69. --> $2057.84 per room [29]
+Average for 3 bedrooms is $6175.56. --> $2058.52 per room [9]
+Average for 4 bedrooms is $6636.50. --> $1659.12 per room [2]
+Average for 5 bedrooms is $6190.00. --> $1238.00 per room [1]
+(75 listings)
+
+Average for 1 bedrooms is $2226.76. --> $2226.76 per room [29]
+Average for 2 bedrooms is $2757.27. --> $1378.63 per room [33]
+Average for 3 bedrooms is $3600.00. --> $1200.00 per room [10]
+Average for 4 bedrooms is $4000.00. --> $1000.00 per room [1]
+Average for 5 bedrooms is $7000.00. --> $1400.00 per room [2]

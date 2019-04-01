@@ -38,10 +38,26 @@ def get():
     #p2 =
     return render_template('mypage2.html', name = text, p1 =  '/static/plots/relPlot.png', p2 =  '/static/plots/distPlots.png')
 
+#Render a basic map using folium
 @app.route('/map')
 def map():
     start_coords = (46.9540700, 142.7360300)
     folium_map = folium.Map(location=start_coords, zoom_start=14)
+    '''icon = CustomIcon(
+        icon_image,
+        icon_size=(38, 95),
+        icon_anchor=(22, 94),
+        shadow_image=shadow_image,
+        shadow_size=(50, 64),
+        shadow_anchor=(4, 62),
+        popup_anchor=(-3, -76)
+    )
+    marker = folium.Marker(
+    location=[x, y],
+    icon=icon,
+    popup='Mt. Hood Meadows'
+    )'''
+
     folium_map.save('templates/map.html')
     return render_template('map.html')
 
