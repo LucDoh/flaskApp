@@ -15,7 +15,9 @@ def hello_world():
     #p2 =
     return render_template('mypage.html', name = 'plot', value = '/static/images/dog.jpg', p1=  '/static/plots/relPlot.png')
 
-@app.route('/', methods=['POST'])
+
+
+@app.route('/', methods=['GET','POST'])
 def my_form_post():
     pref = request.form['prefix']
     zip = request.form['zipcode']
@@ -83,3 +85,8 @@ def query_example():
 
     return '''<h1>The loc value is: {}</h1>
             <h2>The zip value is: {}</h2>'''.format(loc,zip)
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0')
