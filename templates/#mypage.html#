@@ -20,6 +20,7 @@ Enter the<br>
           <input type="submit">
       </form>
       <div>
+Instructions: <b
 PREFIX should be the text before <i> .craigslist.org </i>  [sfbay, newyork, washington, denver...] <br>
 ZIPCODE is 5 digits and in the above craigslist region/prefix<br>
 DISTANCE in miles (integer)<br>
