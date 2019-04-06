@@ -38,7 +38,8 @@ def get():
         text = f.read()
     #p1= '/V_Flask/plots/relPlot.png'
     #p2 =
-    return render_template('mypage2.html', name = text, p1 =  '/static/plots/relPlot.png', p2 =  '/static/plots/distPlots.png')
+    return render_template('mypage2.html', name = text, p1 =  '/static/plots/relPlot.png',
+     p2 =  '/static/plots/distPlots.png', p3 ='/static/plots/FoliumMap.html')
 
 #Render a basic map using folium
 @app.route('/map')

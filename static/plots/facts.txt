@@ -1,9 +1,13 @@
+This report was generated for 95010 and based on 
 
-(107 listings)
+(75 listings).
+Average for 1 bedrooms is $2226.76. --> $2226.76 per room [29] 
 
-Average for 1 bedrooms is $1480.71. --> $1480.71 per room [28]
-Average for 2 bedrooms is $2061.19. --> $1030.60 per room [42]
-Average for 3 bedrooms is $2790.91. --> $930.30 per room [22]
-Average for 4 bedrooms is $3570.83. --> $892.71 per room [12]
-Average for 5 bedrooms is $4400.00. --> $880.00 per room [2]
-Average for 7 bedrooms is $7000.00. --> $1000.00 per room [1]
+Average for 2 bedrooms is $2757.27. --> $1378.63 per room [33] 
+
+Average for 3 bedrooms is $3600.00. --> $1200.00 per room [10] 
+
+Average for 4 bedrooms is $4000.00. --> $1000.00 per room [1] 
+
+Average for 5 bedrooms is $7000.00. --> $1400.00 per room [2] 
+

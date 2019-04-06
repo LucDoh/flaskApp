@@ -6,8 +6,8 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-#import folium
-#from folium.plugins import HeatMap
+import folium
+from folium.plugins import HeatMap
 from V_Flask.utils.helpers import retrieveAll, storeInSQL
 from V_Flask.utils.makePdf import generateReport
 
@@ -18,7 +18,8 @@ import sys
 # To run analysis, run with first argument the db containing df of rentals
 # df.columns = ['PID', 'Title', 'Price', 'BR', 'Sqft', 'Link', 'Ba', 'Lat', 'Long', 'Description']
 def analyze(stringDB):
-    print("Here is the report for " + stringDB +".", file=open("V_Flask/plots/facts.txt", "w"))
+    #f = open('static/facts.txt', 'r+'); f.truncate(0)
+    print("This report was generated for " + stringDB[-15:-10] +" and based on \n", file=open("static/plots/facts.txt", "w"))
 
     # 1) Retrieve data from db
     stringDB = 'V_Flask/dbs/' + stringDB#'clHousing_02-14-18.db'
@@ -32,6 +33,8 @@ def analyze(stringDB):
     print("Report for: " + stringDB + " is in plots/facts.txt.")
     #print(dfx.dtypes)
 
+    # 4) Make folium map
+    makeMap(dfx)
 
 def removeOutliers(dfx):
     dfx = dfx.dropna(subset=['Price']) # Drop NaNs
@@ -50,7 +53,7 @@ def removeOutliers(dfx):
 
     dfx = dfx.drop_duplicates(['Title'])
     print('# of listings: ' + str(sizePre) + ' --> ' + str(dfx.Price.values.size))
-    print('(' + str(dfx.Price.values.size) + ' listings)\n', file=open("static/plots/facts.txt", "a"))
+    print('(' + str(dfx.Price.values.size) + ' listings).', file=open("static/plots/facts.txt", "a"))
 
     return dfx
 
@@ -62,7 +65,7 @@ def plotIt(dfx, savePlot = True):
         x_mean = round(x.Price.mean(),2)
         perBRAvg.append(round(x_mean/i, 2))
         if not np.isnan(x_mean):
-            print ("Average for %s bedrooms is $%0.2f. --> $%0.2f per room [%s]"
+            print ("Average for %s bedrooms is $%0.2f. --> $%0.2f per room [%s] \n"
             % (i, x_mean, x_mean/i, len(dfx[dfx.BR==i].index)), file=open("static/plots/facts.txt", "a"))
 
     #Seaborn plotting
@@ -90,12 +93,25 @@ def plotIt(dfx, savePlot = True):
 
 # Folium heatmap, where the temperature is the price/sqft
 def makeMap(dfx):
+        m = folium.Map(location=[float(dfx['Lat'].iloc[1]), float(dfx['Long'].iloc[1])],tiles='stamentoner', zoom_start=10.9)
         hmdata = []
-        for index, row in dfx.iterrows():
-            hmdata.append([row['Lat'], row['Long'],row['PricePerSqft']])
-        m = folium.Map(location=[38.9869, -76.9426],tiles='stamentoner', zoom_start=10.9)
-        HeatMap(hmdata).add_to(m)
-        m
+        data = dfx.dropna(subset=['Lat', 'Long', 'Price'])
+        print('yeet')
+        for i, row in data.iterrows():
+            long = float(row['Long'])
+            lat = float(row['Lat'])
+            if (not np.isnan(long) and not np.isnan(lat)):
+                folium.Circle(
+                location=[long, lat],
+                #popup=data.iloc[i]['name'],
+                radius=5,
+                color='crimson',
+                #fill=True,
+                #fill_color='crimson'
+                ).add_to(m)
+            #hmdata.append([float(row['Lat']), float(row['Long']),float(row['Price'])])
+        #HeatMap(hmdata).add_to(m)
+        m.save('static/plots/FoliumMap.html')
 
 
         # Perform linear regression, predict Price from sqft

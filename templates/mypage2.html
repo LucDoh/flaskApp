@@ -4,9 +4,7 @@
     </head>
 
     <body>
-        <div>
-            Here is your market report:
-        </div>
+        <div> Here is the housing market report for the area you requested: <br> </div>
 
         <!--
         <div>
@@ -16,10 +14,14 @@
             </form>
         </div>
       -->
-	 <p>{{ name }}</p>
 
-	 <img src={{ p1 }} height="500" width="500">
-   <img src={{ p2 }} height="500" width="500">
+   <img src={{ p2 }} height="500" width="700">
+
+	 <img src={{ p1 }} height="500" width="650">
+<!--   <div w3-include-html={{ p3 }} ></div> -->
+  <iframe src ={{ p3 }} height="500" width="500" ><p>alt text</p></iframe>
+  <p>{{ name }}</p>
+
 
 <!-- '/static/images/dog.jpg' -->
     </body>
