@@ -6,6 +6,7 @@ import re
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import time
 from sqlalchemy import create_engine
 
 
@@ -52,7 +53,12 @@ def getHouses(soup):
 
 # Grab additional info from Link (Ba, lat, long, description)
 def addtlInfo(row):
-    r = requests.get(row['Link'])
+    try:
+        r = requests.get(row['Link'])
+    except ConnectionError:
+        Print('Connection error: \"connection aborted\". Sleep then retry.')
+        time.sleep(3)
+        r = requests.get(row['Link'])
     soup = BeautifulSoup(r.content, 'lxml');
     # In RARE posts, parser won't find a map id and return none
     s = soup.find(id="map")

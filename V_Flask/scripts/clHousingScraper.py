@@ -22,9 +22,12 @@ def scrapeRentals(prefix, zip, dist, n):
     if(requests.get(link).status_code == 404): tag = 'aap'
     #Iterate through pages in craigslist to get n listings
     ####
-    df =  getnListings(prefix, zip, dist, n, link, tag) # get all apts and houses
+    df, count =  getnListings(prefix, zip, dist, n, link, tag) # get all apts and houses
     df.columns = ['PID', 'Title', 'Price', 'BR', 'Sqft', 'Link'] #Name the columns
     print((df['Title'].value_counts()[0])) #??? getNListings yields too many dupes
+    print(count)
+    print("Total # of rentals  " + str(len(df.index)))   # We have 2034 when running over 3 pages of cl
+
     '''
     dfr = getnListings(prefix, zip, dist, n, link, 'roo') # get all rooms
     dfr.columns = ['PID', 'Title', 'Price', 'BR', 'Sqft', 'Link']
@@ -38,7 +41,7 @@ def scrapeRentals(prefix, zip, dist, n):
     '''
     ###
 
-    print("Total # of rentals  " + str(len(df.index)))   # We have 2034 when running over 3 pages of cl
+
 
     #Let's make new columns and scrape this additional info from the posting itself
     df['Ba'], df['Lat'], df['Long'], df['Description'] = None, None, None, None
@@ -60,16 +63,19 @@ def scrapeRentals(prefix, zip, dist, n):
     df = df.drop(df[(df['Price'] > 10000)  | (df['Price'] < 200)].index) #Remove outliers
 
     # Store it all in a SQLite db titled stringDB
+    print("Storing to DB...")
     stringDB_2 = 'V_Flask/dbs/' + stringDB
     storeInSQL(df, stringDB_2)
     return stringDB
 
 def getnListings(prefix, zip, dist, n, link, tag):
     df = pd.DataFrame()
+    count = 0
     for i in range(0,n,120): #3000 is the max
         if(i!=0):
             strkey = 's=' + str(i)
             link = 'https://' + prefix + '.craigslist.org/search/' + tag +'?availabilityMode=0&postal=' + zip + strkey + '&search_distance=' + dist
+            count += 1
         df_current = getHouses(makeSoup(link))
         df = df.append(df_current, ignore_index=True)
-    return df
+    return df, count

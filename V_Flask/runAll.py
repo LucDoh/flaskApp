@@ -9,7 +9,7 @@ def run(prefix, zip, dist, n):
     stringDB = 'clHousing_' + zip + "_" + dist + "_" + str(n) + ".db"
     b = os.path.isfile('V_Flask/dbs/' + stringDB)
 
-    #1 Scrape if data doesn't exist
+    #1 Scrape if data doesn't exist yet
     if b == False: stringDB = clHousingScraper.scrapeRentals(prefix, zip, dist, n)
     #2 Analyze
     analyzePosts.analyze(stringDB)

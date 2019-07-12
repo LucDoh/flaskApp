@@ -19,7 +19,7 @@ import sys
 # df.columns = ['PID', 'Title', 'Price', 'BR', 'Sqft', 'Link', 'Ba', 'Lat', 'Long', 'Description']
 def analyze(stringDB):
     #f = open('static/facts.txt', 'r+'); f.truncate(0)
-    print("This report was generated for " + stringDB[-15:-10] +" and based on \n", file=open("static/plots/facts.txt", "w"))
+    print("This report was generated for " + stringDB[-15:-9] +" and based on \n", file=open("static/plots/facts.txt", "w"))
 
     # 1) Retrieve data from db
     stringDB = 'V_Flask/dbs/' + stringDB#'clHousing_02-14-18.db'
@@ -94,8 +94,11 @@ def plotIt(dfx, savePlot = True):
 # Folium heatmap, where the temperature is the price/sqft
 def makeMap(dfx):
         m = folium.Map(location=[float(dfx['Lat'].iloc[1]), float(dfx['Long'].iloc[1])],tiles='stamentoner', zoom_start=10.9)
+        print("Size of df before map: ", len(dfx.index))
         hmdata = []
         data = dfx.dropna(subset=['Lat', 'Long', 'Price'])
+        print("Size of df before map: ", len(data.index))
+
         print('yeet')
         for i, row in data.iterrows():
             long = float(row['Long'])
