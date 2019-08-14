@@ -1,13 +1,15 @@
-This report was generated for 95010 and based on
-(75 listings).
+This report was generated for 93405 and based on
+(73 listings).
 
-Average for 1 bedrooms is $2226.76. --> $2226.76 per room [29] 
+Average for 1 bedrooms is $1402.89. --> $1402.89 per room [19] 
 
-Average for 2 bedrooms is $2757.27. --> $1378.63 per room [33] 
+Average for 2 bedrooms is $2104.71. --> $1052.36 per room [34] 
 
-Average for 3 bedrooms is $3600.00. --> $1200.00 per room [10] 
+Average for 3 bedrooms is $2852.27. --> $950.76 per room [11] 
 
-Average for 4 bedrooms is $4000.00. --> $1000.00 per room [1] 
+Average for 4 bedrooms is $1991.25. --> $497.81 per room [4] 
 
-Average for 5 bedrooms is $7000.00. --> $1400.00 per room [2] 
+Average for 5 bedrooms is $3875.00. --> $775.00 per room [4] 
+
+Average for 6 bedrooms is $819.00. --> $136.50 per room [1] 
 
