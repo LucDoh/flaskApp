@@ -8,4 +8,4 @@ fpdf
 img2pdf
 scikit-learn
 folium
-uWSGI==2.0.17.1
+uWSGI==2.0.22
